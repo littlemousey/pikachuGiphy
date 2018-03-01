@@ -16,7 +16,7 @@ button {
     border: none;
     color: rgba(0, 0, 0,1);
     text-decoration: none;
-    background-color: rgba(255,230,45);
+    background-color: rgba(255,230,45,1);
     font-family: 'Yanone Kaffeesatz';
     font-weight: 700;
     font-size: 3em;
@@ -40,7 +40,7 @@ button {
 }
 
 button:hover {
-	background-color: rgba(255, 243, 20);
+	background-color: rgba(255, 243, 0, 1);
 	cursor: pointer;
 }
 
