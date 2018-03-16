@@ -1,0 +1,101 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>togepi giphies</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="icon" type="image/x-icon" href="icon.ico">
+	<script>
+	var response;
+	var xhr = new XMLHttpRequest();
+	// retrieve 200 togepi url images from Giphy 
+	xhr.open('GET', 'https://api.giphy.com/v1/gifs/search?api_key=bRl0DM62YELyocvcIQqEK2fDtxQ8zuHR&q=togepi&limit=200&offset=0&rating=G&lang=en', true);
+
+	xhr.onload = function () {
+	  if (xhr.readyState === xhr.DONE) {
+		if (xhr.status === 200) {
+			response = JSON.parse(xhr.response);
+			togepiTimer(response);
+		}
+	  }
+	};
+
+	xhr.send(null);
+
+
+	function returnTogepiImg (response) {
+		let togepiCounter = randomNumber(0, 200); // to get a random number each time the button is pressed
+		const image = response.data[togepiCounter].images.fixed_height.url;
+		document.getElementById("img").setAttribute("src", image);
+	}
+
+	function togepiTimer(response) {
+		setInterval(function(){ returnTogepiImg(response); }, 5000);
+	}
+
+
+	function randomNumber (min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min)) + min;
+	}
+	</script>
+	<style>
+	a:active {
+    -webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    position: relative;
+    top: 6px;
+	}
+
+	body {
+		background-color: black;
+		text-align: center;
+	}
+
+	button {
+		position: relative;
+		border: none;
+		color: rgba(0, 0, 0,1);
+		text-decoration: none;
+		background-color: rgba(255,230,45,1);
+		font-family: 'Yanone Kaffeesatz';
+		font-weight: 700;
+		font-size: 40px;
+		display: block;
+		padding: 4px;
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		border-radius: 8px;
+		-webkit-box-shadow: 0px 9px 0px rgba(255, 201, 0,1), 0px 9px 25px rgba(0,0,0,.7);
+		-moz-box-shadow: 0px 9px 0px rgba(255, 201, 0,1), 0px 9px 25px rgba(0,0,0,.7);
+		box-shadow: 0px 9px 0px rgba(255, 201, 0,1), 0px 9px 25px rgba(0,0,0,.7);
+		margin: 100px auto;
+		width: 160px;
+		text-align: center;
+		
+		-webkit-transition: all .1s ease;
+		-moz-transition: all .1s ease;
+		-ms-transition: all .1s ease;
+		-o-transition: all .1s ease;
+		transition: all .1s ease;
+	}
+
+	button:hover {
+		background-color: rgba(255, 243, 0, 1);
+		cursor: pointer;
+	}
+
+	.content {
+		margin-top: 100px;
+	}
+	</style>
+	</head>
+	<body>
+		<div class="content">
+			<img alt="togepi" id="img" src="https://img00.deviantart.net/f574/i/2017/288/d/1/togepi_by_seviyummy-dbqp19p.png" width="300" height="300"/>
+			<button name="togepiGiphy" onClick="returnTogepiImg(response)">Next togepi</button>
+		</div>
+	</body>
+</html>

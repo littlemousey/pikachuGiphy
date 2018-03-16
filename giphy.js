@@ -1,6 +1,6 @@
 var response;
 var xhr = new XMLHttpRequest();
-// retrieve 200 pikachu url images from Giphy 
+// retrieve 500 pikachu url images from Giphy 
 xhr.open('GET', 'https://api.giphy.com/v1/gifs/search?api_key=pHeytEtBN04WZZzVbodZiBtWuRodg9tM&q=pikachu&limit=500&offset=0&rating=G&lang=en', true);
 
 xhr.onload = function () {
