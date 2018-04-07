@@ -11,6 +11,10 @@ body {
     text-align: center;
 }
 
+.button-group {
+
+}
+
 button {
 	position: relative;
     border: none;
@@ -20,7 +24,6 @@ button {
     font-family: 'Yanone Kaffeesatz';
     font-weight: 700;
     font-size: 40px;
-    display: block;
     padding: 4px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -31,6 +34,7 @@ button {
     margin: 100px auto;
 	width: 160px;
 	text-align: center;
+    margin: 5px;
 	
 	-webkit-transition: all .1s ease;
 	-moz-transition: all .1s ease;
