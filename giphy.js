@@ -60,11 +60,12 @@ function iconAction () {
 	// to change the play or stop icon and trigger action
 	const icon = document.getElementById("icon");
 	if (playModeOn()) {
-		timer = startPikachuTimer();
-		icon.setAttribute('class', 'fa fa-stop');
-	} else {
 		timer = clearInterval(timer);
 		icon.setAttribute('class', 'fa fa-play');
+
+	} else {
+		timer = startPikachuTimer();
+		icon.setAttribute('class', 'fa fa-stop');
 	}
 }
 
