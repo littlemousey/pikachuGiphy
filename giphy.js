@@ -2,6 +2,10 @@ let giphies;
 let timer;
 const history = [];
 
+window.addEventListener('load', function() {
+	navigator.serviceWorker.register('serviceworker.js');
+})
+
 loadGiphies({
 	apiKey: 'pHeytEtBN04WZZzVbodZiBtWuRodg9tM',
 	subject: 'pikachu'
