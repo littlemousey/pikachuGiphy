@@ -11,8 +11,9 @@ body {
     text-align: center;
 }
 
-.button-group {
-
+.swipe-info {
+    color: white;
+    font-size: 2em;
 }
 
 button {
