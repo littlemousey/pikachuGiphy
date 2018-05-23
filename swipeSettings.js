@@ -18,18 +18,3 @@ hammertime.on("swipeleft swiperight", function(ev) {
 		}
 	}
 });
-
-function previous () {
-	if (history.length > 0) {
-		timer = clearInterval(timer);
-		console.log(history);
-		document.getElementById("img").setAttribute("src", history[history.length-1]);
-		console.log(history);
-		history.pop();
-		timer = startPikachuTimer();
-	}	
-}
-
-function next () {
-	showRandomPikachuImage();
-}
