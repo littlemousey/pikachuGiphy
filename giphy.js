@@ -71,7 +71,7 @@ function iconAction () {
 
 	} else {
 		timer = startPikachuTimer();
-		icon.setAttribute('class', 'fa fa-stop');
+		icon.setAttribute('class', 'fa fa-pause');
 	}
 }
 

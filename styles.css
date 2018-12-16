@@ -63,4 +63,9 @@ button:hover {
     #play_btn {
         display:none;
     }
+
+    img {
+        width: 480px;
+        height: auto;
+    }
 }
