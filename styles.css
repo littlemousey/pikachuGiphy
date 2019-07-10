@@ -1,71 +1,78 @@
 a:active {
-    -webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-    -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-    box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-    position: relative;
-    top: 6px;
+  -webkit-box-shadow: 0px 3px 0px rgba(219, 31, 5, 1),
+    0px 3px 6px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 0px 3px 0px rgba(219, 31, 5, 1),
+    0px 3px 6px rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 3px 0px rgba(219, 31, 5, 1), 0px 3px 6px rgba(0, 0, 0, 0.9);
+  position: relative;
+  top: 6px;
 }
 
 body {
-	background-color: black;
-    text-align: center;
+  background-color: black;
+  text-align: center;
 }
 
 .swipe-info {
-    color: white;
-    font-size: 2em;
+  color: white;
+  font-size: 2em;
 }
 
 button {
-	position: relative;
-    border: none;
-    color: rgba(0, 0, 0,1);
-    text-decoration: none;
-    background-color: rgba(255,230,45,1);
-    font-family: 'Yanone Kaffeesatz';
-    font-weight: 700;
-    font-size: 40px;
-    padding: 4px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    -webkit-box-shadow: 0px 9px 0px rgba(255, 201, 0,1), 0px 9px 25px rgba(0,0,0,.7);
-    -moz-box-shadow: 0px 9px 0px rgba(255, 201, 0,1), 0px 9px 25px rgba(0,0,0,.7);
-    box-shadow: 0px 9px 0px rgba(255, 201, 0,1), 0px 9px 25px rgba(0,0,0,.7);
-    margin: 100px auto;
-	width: 160px;
-	text-align: center;
-    margin: 5px;
-	
-	-webkit-transition: all .1s ease;
-	-moz-transition: all .1s ease;
-	-ms-transition: all .1s ease;
-	-o-transition: all .1s ease;
-	transition: all .1s ease;
+  position: relative;
+  border: none;
+  color: rgba(0, 0, 0, 1);
+  text-decoration: none;
+  background-color: rgba(255, 230, 45, 1);
+  font-family: "Yanone Kaffeesatz";
+  font-weight: 700;
+  font-size: 40px;
+  padding: 4px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 9px 0px rgba(255, 201, 0, 1),
+    0px 9px 25px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 9px 0px rgba(255, 201, 0, 1),
+    0px 9px 25px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 9px 0px rgba(255, 201, 0, 1), 0px 9px 25px rgba(0, 0, 0, 0.7);
+  margin: 100px auto;
+  width: 160px;
+  text-align: center;
+  margin: 5px;
+
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease;
 }
 
 button:hover {
-	background-color: rgba(255, 243, 0, 1);
-	cursor: pointer;
+  background-color: rgba(255, 243, 0, 1);
+  cursor: pointer;
 }
 
 .content {
-	margin-top: 100px;
+  margin-top: 100px;
 }
 
-@media screen 
-  and (max-width: 480px) 
-  and (max-height: 800px) {
-    #next_btn {
-        display: none;
-    }
+@media screen and (max-width: 480px) and (max-height: 800px) {
+  #next_btn {
+    display: none;
+  }
 
-    #play_btn {
-        display:none;
-    }
+  #play_btn {
+    display: none;
+  }
 
-    img {
-        width: 480px;
-        height: auto;
-    }
+  img {
+    width: 480px;
+    height: auto;
+  }
+}
+
+.giphy-credits {
+  position: absolute;
+  bottom: 20px;
 }
