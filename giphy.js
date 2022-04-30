@@ -7,15 +7,15 @@ window.addEventListener('load', function() {
 })
 
 loadGiphies({
-	apiKey: 'pHeytEtBN04WZZzVbodZiBtWuRodg9tM',
+	apiKey: config.API_KEY_GIPHY,
 	subject: 'pikachu'
 });
 
 function loadGiphies(info) {
 	const xhr = new XMLHttpRequest();
 
-	// retrieve 200 pikachu url images from Giphy (formaly 500 but Giphy doesn't accept it anymore)
-	xhr.open('GET', `https://api.giphy.com/v1/gifs/search?api_key=${info.apiKey}&q=${info.subject}&limit=200&offset=0&rating=G&lang=en`);
+	// retrieve 50 pikachu url images from Giphy (formaly 500 but Giphy doesn't accept it anymore)
+	xhr.open('GET', `https://api.giphy.com/v1/gifs/search?api_key=${info.apiKey}&q=${info.subject}&limit=50&offset=0&rating=G&lang=en`);
 
 	xhr.onload = function () {
 	  if (xhr.readyState === xhr.DONE) {
@@ -52,7 +52,7 @@ function initializeButtons () {
 }
 
 function showRandomPikachuImage () {
-	let pikachuCounter = randomNumber(0, 200); // to get a random number each time the button is pressed
+	let pikachuCounter = randomNumber(0, 49); // to get a random number each time the button is pressed
 	const image = giphies[pikachuCounter];
 	history.push(image);
 	document.getElementById("img").setAttribute("src", image);
