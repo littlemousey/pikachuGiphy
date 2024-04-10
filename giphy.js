@@ -41,7 +41,7 @@ function extractGiphyUrls(response) {
 function initializeButtons () {
 	const nextButton = document.getElementById("next_btn");
 	const playButton = document.getElementById("play_btn");
-	nextButton.innerText = 'Next pikachu';
+	nextButton.innerText = '>';
 
 	nextButton.addEventListener('click', function() {
 		showRandomPikachuImage();
