@@ -1,4 +1,6 @@
-fetch('https://api.giphy.com/v1/gifs/search?api_key=M2NeUIwiPVvIIJ6VE9JcIBqxGbT7doP5&q=pingu&limit=200&offset=0&rating=G&lang=en')
+const SEARCH_TERM = 'pingu-penguin';
+
+fetch(`https://api.giphy.com/v1/gifs/search?api_key=M2NeUIwiPVvIIJ6VE9JcIBqxGbT7doP5&q=${SEARCH_TERM}&offset=0&rating=G&lang=en`)
   .then(function(response) {
     return response.json();
   })
@@ -18,7 +20,6 @@ function savePinguImgs (rawData) {
 
 function showPingus (list) {
 	for (let pingu of list ) {
-		let newElement = '<img src="`${pingu}`" alt="pingu">';
 		var img = document.createElement('img');
 		img.src = `${pingu}`;
 		img.alt = 'pingu';

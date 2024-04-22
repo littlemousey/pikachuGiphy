@@ -9,8 +9,8 @@
 	<script>
 	var response;
 	var xhr = new XMLHttpRequest();
-	// retrieve 200 panda url images from Giphy 
-	xhr.open('GET', 'https://api.giphy.com/v1/gifs/search?api_key=bRl0DM62YELyocvcIQqEK2fDtxQ8zuHR&q=panda&limit=200&offset=0&rating=G&lang=en', true);
+	// retrieve panda url images from Giphy 
+	xhr.open('GET', 'https://api.giphy.com/v1/gifs/search?api_key=bRl0DM62YELyocvcIQqEK2fDtxQ8zuHR&q=panda&offset=0&rating=G&lang=en', true);
 
 	xhr.onload = function () {
 	  if (xhr.readyState === xhr.DONE) {
@@ -25,13 +25,17 @@
 
 
 	function returnPandaImg (response) {
-		let pandaCounter = randomNumber(0, 200); // to get a random number each time the button is pressed
-		const image = response.data[pandaCounter].images.fixed_height.url;
-		document.getElementById("img").setAttribute("src", image);
+		let pandaCounter = randomNumber(0, response.data.length); // to get a random number each time the button is pressed
+		const imageUrl = response.data[pandaCounter].images.fixed_height.url;
+		document.getElementById('panda-loader').setAttribute('src', imageUrl);
+		document.getElementById('panda-left').setAttribute('src', imageUrl);
+		document.getElementById('panda-left').setAttribute('alt', 'panda');
+		document.getElementById('panda-right').setAttribute('src', imageUrl);
+		document.getElementById('panda-right').setAttribute('alt', 'panda');
 	}
 
 	function pandaTimer(response) {
-		setInterval(function(){ returnPandaImg(response); }, 5000);
+		setInterval(function(){ returnPandaImg(response); }, 2500);
 	}
 
 
@@ -50,7 +54,19 @@
     top: 6px;
 	}
 
+	:root {
+  		--height: 312px;
+	}
+
+	/* background credit: https://codepen.io/dbenmore/pen/vYYOpQR */
 	body {
+		background-image: linear-gradient(315deg, white 25%, transparent 25%),
+		linear-gradient(225deg, white 25%, transparent 25%),
+		linear-gradient(135deg, white 25%, transparent 25%),
+		linear-gradient(45deg, white 25%, transparent 25%);
+		background-position-x: 0, 0, 0, 0;
+		background-position-y: 0, 0, calc(var(--height) / 2), calc(var(--height) / 2);
+		background-size: var(--height) var(--height);
 		background-color: black;
 		text-align: center;
 	}
@@ -89,14 +105,26 @@
 	}
 
 	.content {
-		margin-top: 100px;
+		margin: 20vh auto;
+	}
+	header {
+		background-color: #F6CF57;
+		border: 2px solid black;
+		display: inline-block;
+		padding: 5px;
 	}
 	</style>
 	</head>
 	<body>
+		<header>
+			<a href="../index.html">Pikachu</a>
+			|| <a href="./wallOfPingus.html">Pingu</a>
+			|| <a href="./togepi.html">Togepi</a>
+		</header>
 		<div class="content">
-			<img alt="panda" id="img" src="https://i.pinimg.com/originals/60/ea/b2/60eab2e91bdbbea867d224a4ef4c398d.jpg"/>
-			<button name="nextGiphy" onClick="returnPandaImg(response)">Next panda</button>
+			<img alt="" id="panda-left" src=""/>
+			<img alt="panda" id="panda-loader" src="panda-loading.gif"/>
+			<img alt="" id="panda-right" src=""/>
 		</div>
 	</body>
 </html>

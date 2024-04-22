@@ -2,9 +2,20 @@ let giphies;
 let timer;
 const history = [];
 
-window.addEventListener('load', function() {
-	navigator.serviceWorker.register('serviceworker.js');
-})
+if ("serviceWorker" in navigator) {
+	// Register a service worker hosted at the root of the
+	// site using the default scope.
+	navigator.serviceWorker.register('serviceworker.js').then(
+	  (registration) => {
+		console.log("Service worker registration succeeded:", registration);
+	  },
+	  (error) => {
+		console.error(`Service worker registration failed: ${error}`);
+	  },
+	);
+  } else {
+	console.error("Service workers are not supported.");
+  }
 
 loadGiphies({
 	apiKey: config.API_KEY_GIPHY,
@@ -52,7 +63,7 @@ function initializeButtons () {
 }
 
 function showRandomPikachuImage () {
-	let pikachuCounter = randomNumber(0, 49); // to get a random number each time the button is pressed
+	let pikachuCounter = randomNumber(0, giphies.length); // to get a random number each time the button is pressed
 	const image = giphies[pikachuCounter];
 	history.push(image);
 	document.getElementById("img").setAttribute("src", image);

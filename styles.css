@@ -29,6 +29,10 @@ body {
   justify-content: center;
 }
 
+img#img {
+  border: 20px solid black;
+}
+
 .swipe-info {
   color: white;
   font-size: 2em;
@@ -62,6 +66,13 @@ button {
   -ms-transition: all 0.1s ease;
   -o-transition: all 0.1s ease;
   transition: all 0.1s ease;
+}
+
+header {
+  background-color: #F6CF57;
+  border: 2px solid black;
+  display: inline-block;
+  padding: 5px;
 }
 
 button:hover {

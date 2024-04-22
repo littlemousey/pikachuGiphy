@@ -8,15 +8,17 @@
   	<link rel="icon" type="image/x-icon" href="icon.ico">
 	<script>
 	var response;
+	var listOfTogepis;
 	var xhr = new XMLHttpRequest();
-	// retrieve 200 togepi url images from Giphy 
-	xhr.open('GET', 'https://api.giphy.com/v1/gifs/search?api_key=bRl0DM62YELyocvcIQqEK2fDtxQ8zuHR&q=togepi&limit=200&offset=0&rating=G&lang=en', true);
+	// retrieve togepi url images from Giphy 
+	xhr.open('GET', 'https://api.giphy.com/v1/gifs/search?api_key=bRl0DM62YELyocvcIQqEK2fDtxQ8zuHR&q=togepi&offset=0&rating=G&lang=en', true);
 
 	xhr.onload = function () {
 	  if (xhr.readyState === xhr.DONE) {
 		if (xhr.status === 200) {
-			response = JSON.parse(xhr.response);
-			togepiTimer(response);
+			var response = JSON.parse(xhr.response);
+			listOfTogepis = response.data;
+			togepiTimer();
 		}
 	  }
 	};
@@ -24,14 +26,14 @@
 	xhr.send(null);
 
 
-	function returnTogepiImg (response) {
-		let togepiCounter = randomNumber(0, 200); // to get a random number each time the button is pressed
-		const image = response.data[togepiCounter].images.fixed_height.url;
-		document.getElementById("img").setAttribute("src", image);
+	function returnTogepiImg () {
+		let togepiCounter = randomNumber(0, listOfTogepis.length); // to get a random number each time the button is pressed
+		const image = listOfTogepis[togepiCounter].images.fixed_height.url;
+		document.getElementById("togepi-img").setAttribute("src", image);
 	}
 
-	function togepiTimer(response) {
-		setInterval(function(){ returnTogepiImg(response); }, 5000);
+	function togepiTimer() {
+		setInterval(function(){ returnTogepiImg(); }, 2500);
 	}
 
 
@@ -50,8 +52,13 @@
     top: 6px;
 	}
 
+	/* Background credit goes to https://codepen.io/chris22smith/pen/dOOrOP */
 	body {
-		background-color: black;
+		background: radial-gradient(hsl(358, 72%, 68%) 15%, rgba(0,0,0,0) 16%), radial-gradient(#6cf 15%, rgba(0,0,0,0) 16%), #fc0;
+		background-position: 0 0, 30px 30px;
+		background-origin: padding-box;
+		background-clip: border-box;
+		background-size: 60px 60px;
 		text-align: center;
 	}
 
@@ -91,12 +98,30 @@
 	.content {
 		margin-top: 100px;
 	}
+	header {
+		background-color: #F6CF57;
+		border: 2px solid black;
+		display: inline-block;
+		padding: 5px;
+	}
+	.screenbox {
+		background-color: black;
+		display: inline-block;
+		padding: 15px;
+	}
 	</style>
 	</head>
 	<body>
+		<header>
+			<a href="../index.html">Pikachu</a>
+			|| <a href="./wallOfPingus.html">Pingu</a>
+			|| <a href="./pandas.html">Pandas</a>
+		</header>
 		<div class="content">
-			<img alt="togepi" id="img" src="https://img00.deviantart.net/f574/i/2017/288/d/1/togepi_by_seviyummy-dbqp19p.png" width="300" height="300"/>
-			<button name="togepiGiphy" onClick="returnTogepiImg(response)">Next togepi</button>
+			<div class="screenbox">
+				<img alt="togepi" id="togepi-img" src="togepi-loading.gif"/>
+			</div>
+			<button name="togepiGiphy" onClick="returnTogepiImg()">Next togepi</button>
 		</div>
 	</body>
 </html>
